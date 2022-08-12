@@ -1,8 +1,36 @@
-<app-header></app-header>
-<div class="container-fluid d-flex bg-dark">
+<header class="bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fs-3 bg-dark">
+<div class="container-fluid">
+  <a class="navbar-brand fs-3 fw-bold text-warning" href="#">Online Shop</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <input type="text" [(ngModel)]="searchFilter" style="width: 600px;"/>
+    <!-- <form class="d-flex mx-auto w-50">
+        <input class="form-control me-2 bg-transparent text-light fs-3 fw-bold border-0 " type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-warning fs-5" type="submit">Search</button>
+      </form> -->
+    <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+      <li class="nav-item">
+        <a class="nav-link me-4 text-light active" aria-current="page" href="/home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link me-4 text-light" routerLink="/products">Products</a>
+      </li>
+
+    </ul>
+
+  </div>
+</div>
+</nav>
+</header>
+
+<div class="container-fluid d-flex">
   <div class="container">
+    <!-- <input type="text" [(ngModel)]="searchFilter" style="width: 300px;"/> -->
     <div class="row">
-      <div class="col-3 my-4" *ngFor="let product of products">
+      <div class="col-3 my-4" *ngFor="let product of filteredProductsbySearch">
         <div class="card bg-secondary text-light" style="width: 18rem">
           <img [src]=" product.product_img " class="card-img-top" alt="" />
           <div class="card-body fs-5 fw-bold">
@@ -10,6 +38,7 @@
             <p class="card-text">{{ product.price }}</p>
             <p class="card-text">{{ product.quantity }}</p>
             <a [routerLink]="['/cart' , product.id]"><button>Buy</button></a>
+            <a [routerLink]="['/product-details' , product.id]"><button>Show Details</button></a>
           </div>
         </div>
       </div>
