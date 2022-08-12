@@ -1,0 +1,31 @@
+<app-header></app-header>
+    <div class="wrapper">
+	<div class="main_card">
+		<div class="card_left">
+			<div class="card_datails">
+				<h1> {{product.product_name}}</h1>
+                <h6>{{ product.specifctions | uppercase }}</h6>
+                <h4>{{ product.size }}</h4>
+                <h4>{{ product.discount }}</h4>
+				<p class="disc">this product has {{product.quantity}} pice only</p>
+			<!-- <div class="social-btn">
+				<button>
+					<i class="fas fa-play"></i> SEE TRAILER
+				</button>
+			</div> -->
+			</div>
+		</div>
+		<div class="card_right">
+			<div class="img_container">
+                    <a [routerLink]=" ['/product',product.id]">
+                     <img
+                       class="card-img-top"
+                       [src]="product.product_img"
+                       [name]="product.product_name"
+                       alt="Card image cap"
+                     /></a>
+                    </div>
+			</div>
+		</div>
+	</div>
+    <app-footer></app-footer>

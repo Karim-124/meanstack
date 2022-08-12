@@ -1,0 +1,13 @@
+img{
+  height: 800px;
+}
+
+ul li a{
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+ul li a:hover{
+  background-color: #cf8d2e;
+}
+
